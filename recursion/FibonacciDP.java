@@ -2,27 +2,32 @@ package com.recursion;
 
 import java.util.Scanner;
 
-public class Fibonacci {
+public class FibonacciDP {
 
 	public static void main(String[] args) {
-
+		
 		Scanner reader = new Scanner(System.in);
 		System.out.print("Number to calculate: ");
-		long Number= reader.nextLong();
+		int Number= reader.nextInt();
 		reader.close();
 		
 		System.out.println("Nth Fibonacci for "+Number+" is "+fib(Number));
-
-	}
-	
-	static long fib(long n) {
-		if (n<=1) {
-			return n;
-		}else {
-			return fib(n-1)+fib(n-2);
-		}
-	}
-
 }
+	
+	static int fib(int n)
+    {
 
-//1 1 2 3 5 8 13 21 34 ...
+    int f[] = new int[n+1];
+    int i;
+   
+    f[0] = 0;
+    f[1] = 1;
+     
+    for (i = 2; i <= n; i++)
+    {
+        f[i] = f[i-1] + f[i-2];
+    }
+      
+    return f[n];
+    }
+}

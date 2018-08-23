@@ -1,47 +1,42 @@
 package com.sort;
 
+import java.util.Arrays;
+
 public class MergeSorting {int[] array;
 
 int[] TempArray;
 
 public static void main(String[] args) {
-	
-	int [] arr= {20,2,57,10,1,36,98,7,40};
-	
-	System.out.println("Before sort:");
-	for (int i=0;i<arr.length;i++) {
-		System.out.print(arr[i]+"\t");
-	}
-	
-	new MergeSorting().PrepareForSort(arr);
-	System.out.println("\nAfter sorting");
-	for(int i=0;i< arr.length;i++)
-		System.out.print( arr[i]+ "\t");
+	int [] array= {20,2,57,10,1,36,98,7,40};
+	System.out.println("Before sort:\n"+Arrays.toString(array));
+	new MergeSorting().prepareForSort(array);
+	System.out.println("\nAfter sort:\n"+Arrays.toString(array));
 	}
 	
 
-void PrepareForSort(int[] arr){
-	this.array=arr;
-	this.TempArray=new int[arr.length];
-	MergeSort(0,arr.length-1);
+int[] prepareForSort(int[] array){
+	this.array=array;
+	this.TempArray=new int[array.length];
+	mergeSort(0,array.length-1);
+	return array;
 	}
 
-void MergeSort(int LowerIndex, int HigherIndex){	
-	if(LowerIndex< HigherIndex ){
-		int middle=LowerIndex+ (HigherIndex-LowerIndex)/2;
-		MergeSort(LowerIndex,middle); //ex.(1-5)
-		MergeSort(middle+1,HigherIndex);//ex.(6,10)
-		MergePart(LowerIndex,middle,HigherIndex);
+void mergeSort(int lowerIndex, int higherIndex){	
+	if(lowerIndex< higherIndex ){
+		int middle=lowerIndex+ (higherIndex-lowerIndex)/2;
+		mergeSort(lowerIndex,middle);
+		mergeSort(middle+1,higherIndex);
+		mergePart(lowerIndex,middle,higherIndex);
 		}
 	}
 	
-void MergePart(int LowerIndex,int middle,int HigherIndex ){
-	for(int i=LowerIndex;i<=HigherIndex;i++)	
+void mergePart(int lowerIndex,int middle,int higherIndex ){
+	for(int i=lowerIndex;i<=higherIndex;i++)	
 		TempArray[i]= array[i];
-	int i=LowerIndex;
+	int i=lowerIndex;
 	int j=middle+1;
-	int  k=LowerIndex;
-	while(i<=middle && j<= HigherIndex){
+	int  k=lowerIndex;
+	while(i<=middle && j<= higherIndex){
 		if( TempArray[i]<= TempArray[j]){
 			array[k] =TempArray[i];
 			i++;

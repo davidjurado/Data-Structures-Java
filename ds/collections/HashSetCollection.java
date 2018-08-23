@@ -8,7 +8,7 @@ public class HashSetCollection {
 
 	public static void main(String[] args) {
 		
-		HashSet<String> hs = new HashSet<String>();
+		HashSet<String> hs = new HashSet<String>(); //Implemented using a hash table
 		
 		hs.add("uno");
 		hs.add("dos");
@@ -23,7 +23,7 @@ public class HashSetCollection {
 		
 		//TreeSet
 		
-		TreeSet<String> ts = new TreeSet<String>();
+		TreeSet<String> ts = new TreeSet<String>(); //implemented using a tree structure
 		
 		ts.add("uno");
 		ts.add("dos");

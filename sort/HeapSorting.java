@@ -1,51 +1,47 @@
 package com.sort;
 
+import java.util.Arrays;
+
 public class HeapSorting {
 	
 	static int total;
 	
 	public static void main(String[] args) {
-		
-		Integer[] arr={20,2,57,10,1,36,98,7,40};
-		System.out.println("Before Sort");
-		for(int i=0;i<arr.length;i++)
-			System.out.print(arr[i] +"\t");
-		
-		HeapSort(arr);
-		
-		System.out.println("\nAfter Sort");
-		for(int i=0;i<arr.length;i++)
-			System.out.print(arr[i] +"\t");
+		Integer[] array={20,2,57,10,1,36,98,7,40};
+		System.out.println("Before sort:\n"+Arrays.toString(array));
+		array=heapSort(array);
+		System.out.println("\nAfter sort:\n"+Arrays.toString(array));
 		}
 	
-	static void swap(Comparable[] arr, int a, int b){
-		Comparable temp= arr[a];
-		arr[a]= arr[b];
-		arr[b]= temp;
+	static void swap(Comparable[] array, int a, int b){
+		Comparable temp= array[a];
+		array[a]= array[b];
+		array[b]= temp;
 		}
 	
-	static void heapify(Comparable[] arr, int i){
-		int left= i*2;
-		int rigth=i*2+1;
-		int parent=i;
-		if( left<= total && arr[left].compareTo(arr[parent])>=0)
+	static void heapify(Comparable[] array, int index){
+		int left= index*2;
+		int rigth=index*2+1;
+		int parent=index;
+		if( left<= total && array[left].compareTo(array[parent])>=0)
 			parent=left;
-		if( rigth<= total && arr[rigth].compareTo(arr[parent])>=0)
+		if( rigth<= total && array[rigth].compareTo(array[parent])>=0)
 			parent=rigth;
-		if( parent!=i){
-			swap(arr,i,parent);
-			heapify(arr, parent);
+		if( parent!=index){
+			swap(array,index,parent);
+			heapify(array, parent);
 			}
 		}
 	
-	static void HeapSort( Comparable[] arr){
-		total=arr.length-1;
+	static Integer[] heapSort( Integer[] array){
+		total=array.length-1;
 		for(int i=total/2;i>=0;i--)
-			heapify(arr, i);
+			heapify(array, i);
 		for(int i=total;i>0;i--){
-			swap(arr,0,i);
+			swap(array,0,i);
 			total--;
-			heapify(arr, 0);
+			heapify(array, 0);
 			}
+		return array;
 		}
 }

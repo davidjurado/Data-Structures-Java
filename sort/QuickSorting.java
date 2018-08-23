@@ -1,48 +1,45 @@
 package com.sort;
 
+import java.util.Arrays;
+
 public class QuickSorting {
 
 	public static void main(String[] args) {
-		
-		int [] arr= {20,2,57,10,1,36,98,7,40};
-		
-		System.out.println("Before sort:");
-		for (int i=0;i<arr.length;i++) {
-			System.out.print(arr[i]+"\t");
+		int [] array= {20,2,57,10,1,36,98,7,40};
+		System.out.println("Before sort:\n"+Arrays.toString(array));
+		array=quickSort(array,0,array.length-1);
+		System.out.println("\nAfter sort:\n"+Arrays.toString(array));
 		}
-		
-		QuickSort(arr,0,arr.length-1);
-		System.out.println("\nAfter sort:");
-		for (int i=0;i<arr.length;i++) {
-			System.out.print(arr[i]+"\t");
-		}
-	}
 	
-	static void QuickSort(int[] arr, int low, int high) {
+	static int[] quickSort(int[] array, int low, int high) {
 		
-		if(low>high) return;
+		if(array.length==0) {
+			return array;
+		}
+		if(low>high) return null;
 		
 		int mid=low+(high-low)/2;
-		int pivot=arr[mid];
+		int pivot=array[mid];
 		int i=low;
 		int j=high;
 		while(i<=j) {
-			while(arr[i]<pivot)
+			while(array[i]<pivot)
 				i++;
-			while(arr[j]>pivot)
+			while(array[j]>pivot)
 				j--;
 			if(i<=j) {
-				int temp=arr[i];
-				arr[i]=arr[j];
-				arr[j]=temp;
+				int temp=array[i];
+				array[i]=array[j];
+				array[j]=temp;
 				i++;
 				j--;
 			}
 		}
 		if(low<j)
-			QuickSort(arr, low, j);
+			quickSort(array, low, j);
 		if(high>i)
-			QuickSort(arr, i, high);
+			quickSort(array, i, high);
+		return array;
 	}
 
 }

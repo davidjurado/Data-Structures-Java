@@ -6,7 +6,7 @@ public class ArrayListCollection {
 
 	public static void main(String[] args) {
 		
-		ArrayList<String> ar= new ArrayList<String>();
+		ArrayList<String> ar= new ArrayList<String>(); //Interface List
 		
 		ar.add("cero");
 		ar.add("uno");

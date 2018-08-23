@@ -4,7 +4,8 @@ import java.util.Scanner;
 
 public class InterpolationSearch {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) {//O(n), sin embargo, bajo la hipótesis de una distribución 
+		//uniforme de los datos es O(log log n)
 		
 		DataSet data = new DataSet(1000000);
 		Boolean IsFound=false;

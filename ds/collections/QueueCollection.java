@@ -9,7 +9,7 @@ public class QueueCollection {
 	public static void main(String[] args) {
 		
 		//basic queue
-		Queue<Integer> q= new LinkedList<Integer>();
+		Queue<Integer> q= new LinkedList<Integer>();//LinkedList 
 		
 		q.add(14);
 		q.add(11);

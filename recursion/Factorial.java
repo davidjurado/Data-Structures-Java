@@ -6,9 +6,9 @@ public class Factorial {
 
 	public static void main(String[] args) {
 		
-		Scanner reader = new Scanner(System.in);  // Reading from System.in
+		Scanner reader = new Scanner(System.in); 
 		System.out.print("Number to calculate: ");
-		long Number= reader.nextLong(); // Scans the next token of the input as an int.
+		long Number= reader.nextLong();
 		reader.close();
 		
 		System.out.println("Factorial of "+Number+" is "+fact(Number));
